@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 240 10% 6%;
+    --foreground: 0 0% 100%;
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 263.4 70% 50.4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background-color: black;
+    @apply text-white;
+  }
+}
+
+/* Font families */
+.font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
+.font-space-grotesk {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+/* Import handwritten fonts */
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap");
+
+/* Handwritten font classes */
+.font-dancing {
+  font-family: "Dancing Script", cursive;
+}
+
+.font-caveat {
+  font-family: "Caveat", cursive;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* Section styling */
+.section-header {
+  @apply text-4xl font-bold tracking-tight mb-4 font-space-grotesk;
+}
+
+.section-subtitle {
+  @apply text-gray-400 text-base mb-12 font-inter;
+}
+
+/* Enhanced spacing utilities */
+.section-spacing {
+  @apply py-20 px-6 md:px-24 lg:px-32;
+}
+
+.container-spacing {
+  @apply max-w-7xl mx-auto;
+}
+
+.content-spacing {
+  @apply space-y-8;
+}
+
+/* Prose styling for dark theme */
+.prose-invert {
+  @apply text-gray-200 leading-relaxed;
+}
+
+.prose-invert p {
+  @apply mb-4;
+}
+
+/* Custom cursor */
+* {
+  cursor: none !important;
+}
+
+@media (max-width: 768px) {
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Form styling */
+.form-input {
+  @apply bg-gray-900 border border-gray-700 text-white placeholder:text-gray-400 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all duration-300;
+}
+
+/* Button styling */
+.btn-primary {
+  @apply bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25;
+}
+
+.btn-secondary {
+  @apply border border-indigo-500 text-indigo-400 hover:bg-indigo-500 hover:text-white px-6 py-3 rounded-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105;
+}
+
+/* Project card styling */
+.project-card {
+  @apply bg-gray-900 border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/20;
+}
+
+/* Skill tag styling */
+.skill-tag {
+  @apply bg-gray-800 text-gray-200 px-4 py-3 rounded-full text-sm font-medium transition-all duration-300 ease-in-out hover:bg-indigo-600 hover:text-white hover:scale-105 hover:shadow-lg;
+}
+
+/* Education card styling */
+.education-card {
+  @apply border-l-4 border-indigo-500 pl-8 py-6 mb-8 bg-gray-900/50 rounded-md transition-all duration-300 ease-in-out hover:bg-gray-900/80 hover:shadow-lg;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #6366f1, #8b5cf6);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #4f46e5, #7c3aed);
+}
+
+/* Glow effects */
+.glow-border {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+/* Professional footer styling */
+.footer-section {
+  @apply py-16 px-6 md:px-24 lg:px-32 border-t border-gray-800/50;
+}
+
+.footer-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-12 mb-12;
+}
+
+.footer-column {
+  @apply space-y-6;
+}
+
+.footer-title {
+  @apply text-lg font-semibold text-white mb-4 font-space-grotesk;
+}
+
+.footer-link {
+  @apply text-gray-400 hover:text-indigo-400 transition-colors duration-300 font-inter;
+}
+
+.copyright-section {
+  @apply pt-8 border-t border-gray-800/30 text-center;
+}
+
+/* Enhanced hero typography */
+.hero-greeting {
+  @apply text-2xl md:text-3xl text-gray-300 font-space-grotesk font-medium tracking-wide mb-2;
+}
+
+.hero-name {
+  @apply text-6xl md:text-8xl font-bold text-white font-dancing leading-tight;
+}
+
+.hero-subtitle {
+  @apply text-xl md:text-2xl text-gray-300 mb-4 font-caveat font-medium;
+}
+
+.hero-description {
+  @apply text-lg text-gray-400 mb-12 font-inter leading-relaxed max-w-2xl;
+}
