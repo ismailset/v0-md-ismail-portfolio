@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -9,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { CheckCircle, Send } from "lucide-react"
+import { sendEmail } from "@/app/actions/send-email"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,25 +18,37 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showThankYou, setShowThankYou] = useState(false)
+  const [error, setError] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError("")
 
-    setTimeout(() => {
+    try {
+      const result = await sendEmail(formData)
+
+      if (result.success) {
+        setShowThankYou(true)
+        setFormData({ name: "", email: "", message: "" })
+
+        setTimeout(() => {
+          setShowThankYou(false)
+        }, 5000)
+      } else {
+        setError(result.message)
+      }
+    } catch (err) {
+      console.error("[v0] Form submission failed:", err)
+      setError("Failed to send message. Please try again.")
+    } finally {
       setIsSubmitting(false)
-      setShowThankYou(true)
-      setFormData({ name: "", email: "", message: "" })
-
-      setTimeout(() => {
-        setShowThankYou(false)
-      }, 5000)
-    }, 1500)
+    }
   }
 
   return (
@@ -124,6 +136,16 @@ export default function Contact() {
                 >
                   <CheckCircle className="h-5 w-5 text-green-400" />
                   <p className="text-green-300 font-inter">Thanks for reaching out! I'll get back to you soon.</p>
+                </motion.div>
+              )}
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="mt-6 p-4 border border-red-500 rounded-lg flex items-center gap-3 bg-red-500/10"
+                >
+                  <p className="text-red-300 font-inter">{error}</p>
                 </motion.div>
               )}
             </AnimatePresence>

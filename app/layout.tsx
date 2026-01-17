@@ -15,9 +15,14 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "Md Ismail | Full-Stack Developer",
-  description: "Personal portfolio of Md Ismail, a Full-Stack Developer and CSE Student",
-    generator: 'v0.app'
+  title: "MD Ismail | Full-Stack Developer",
+  description: "Personal portfolio of MD Ismail, a Full-Stack Developer and CSE Student",
+  icons: {
+    icon: "/favicon.webp",
+    shortcut: "/favicon.webp",
+    apple: "/favicon.webp",
+  },
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -27,6 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/favicon.webp" type="image/webp" />
+      </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}

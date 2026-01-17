@@ -19,7 +19,7 @@ const projectsData = [
     name: "News Aggregator Website",
     description:
       "A modern AI-powered news platform that fetches and summarizes trending news across different categories. Built with performance and user readability in mind.",
-    url: "https://news.ismailsworld.xyz",
+    url: "https://news.mdismail.dev/",
     image: "/modern-news-aggregator-website-with-ai-powered-new.jpg",
     tech: ["React", "Vite", "Tailwind CSS", "News API", "OpenAI"],
   },
@@ -27,7 +27,7 @@ const projectsData = [
     name: "Study Buddy",
     description:
       "A modern, vibrant landing page designed with Gen-Z aesthetics, featuring smooth animations and interactive elements that engage young audiences.",
-    url: "https://project1.ismailsworld.xyz",
+    url: "https://project.mdismail.dev/",
     image: "/vibrant-gen-z-study-landing-page-with-bold-colors-.jpg",
     tech: ["React", "Tailwind CSS", "Framer Motion"],
   },
@@ -35,7 +35,7 @@ const projectsData = [
     name: "Image Resizer UI",
     description:
       "User-friendly interface for image resizing with drag-and-drop functionality, built with modern web APIs for seamless file processing.",
-    url: "https://img-resize.ismailsworld.xyz",
+    url: "https://img-resize.mdismail.dev/",
     image: "/modern-image-resizer-tool-interface-with-drag-and-.jpg",
     tech: ["React", "Canvas API", "File API"],
   },
@@ -43,7 +43,7 @@ const projectsData = [
     name: "Education Website",
     description:
       "Clean and elegant educational platform design with modern layout, showcasing responsive design principles and user experience best practices for online learning.",
-    url: "https://eduvibe.ismailsworld.xyz/",
+    url: "https://eduvibe.mdismail.dev/",
     image: "/modern-educational-platform-homepage-with-clean-la.jpg",
     tech: ["Next.js", "CSS", "JavaScript"],
   },
