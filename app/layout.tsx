@@ -79,10 +79,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <head></head>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
+      <head>
         <Script
-          id="json-ld-schema"
+          id="json-ld-person"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -91,18 +90,19 @@ export default function RootLayout({
               name: "Md Ismail",
               url: "https://mdismail.dev",
               image: "https://mdismail.dev/images/md-ismail-full-stack-developer.jpg",
-              jobTitle: "Full-Stack Developer",
+              jobTitle: "Competitive Programmer & Entrepreneur",
               sameAs: ["https://github.com/ismailset", "https://www.linkedin.com/in/md-ismail-50b966362"],
               description:
-                "Full-stack developer specializing in React, Node.js, and AI-powered web solutions. CSE student at Northern University Bangladesh.",
+                "Competitive programmer and entrepreneur specializing in algorithms, problem solving, and building innovative products. CSE student at Northern University Bangladesh.",
               location: {
                 "@type": "Place",
                 name: "Bangladesh",
               },
             }),
           }}
-          strategy="afterInteractive"
         />
+      </head>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

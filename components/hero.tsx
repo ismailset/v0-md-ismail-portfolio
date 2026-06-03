@@ -31,8 +31,22 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.h1
-              className="text-5xl md:text-7xl font-bold text-white font-space-grotesk leading-tight mb-6"
+            <motion.div
+              className="mb-6"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.8 }}
+            >
+              <p className="text-2xl md:text-3xl text-gray-300 font-space-grotesk font-medium tracking-wide mb-2">
+                Hey it's me
+              </p>
+              <h1 className="text-6xl md:text-8xl font-bold text-white font-dancing leading-tight glow-text mb-6">
+                MD ISMAIL
+              </h1>
+            </motion.div>
+
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold text-white font-space-grotesk leading-tight mb-6"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -41,7 +55,7 @@ export default function Hero() {
               <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Entrepreneur
               </span>
-            </motion.h1>
+            </motion.h2>
 
             <motion.div
               className="mb-8 h-12 flex items-center"

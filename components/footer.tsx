@@ -34,7 +34,13 @@ const quickLinks = [
   { name: "Contact", id: "contact" },
 ]
 
-const services = ["Web Development", "Frontend Design", "Backend Development", "Database Design", "API Integration"]
+const services = [
+  "Competitive Programming",
+  "Algorithm Design",
+  "Web Development",
+  "Problem Solving",
+  "Entrepreneurship",
+]
 
 export default function Footer() {
   const scrollToSection = (id: string) => {
@@ -56,14 +62,13 @@ export default function Footer() {
           >
             <h3 className="text-2xl font-bold text-white mb-4 font-dancing">Md Ismail</h3>
             <p className="text-gray-400 font-inter leading-relaxed mb-6">
-              Full-Stack Developer passionate about creating innovative web solutions. Let's build something amazing
-              together.
+              Competitive Programmer & Entrepreneur passionate about solving problems and building impactful products.
             </p>
 
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-400">
                 <Mail size={16} className="text-indigo-400" />
-                <span className="font-inter text-sm">mdismail.121510@gmail.com</span>
+                <span className="font-inter text-sm">iammdismail0@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <Phone size={16} className="text-indigo-400" />
