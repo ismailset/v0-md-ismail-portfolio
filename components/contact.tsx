@@ -8,47 +8,35 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { CheckCircle, Send } from "lucide-react"
-import { sendEmail } from "@/app/actions/send-email"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [showThankYou, setShowThankYou] = useState(false)
-  const [error, setError] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    setError("")
 
-    try {
-      const result = await sendEmail(formData)
+    const mailtoBody = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    const mailtoLink = `mailto:iammdismail0@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(mailtoBody)}`
 
-      if (result.success) {
-        setShowThankYou(true)
-        setFormData({ name: "", email: "", message: "" })
+    window.location.href = mailtoLink
 
-        setTimeout(() => {
-          setShowThankYou(false)
-        }, 5000)
-      } else {
-        setError(result.message)
-      }
-    } catch (err) {
-      console.error("[v0] Form submission failed:", err)
-      setError("Failed to send message. Please try again.")
-    } finally {
-      setIsSubmitting(false)
-    }
+    setShowThankYou(true)
+    setFormData({ name: "", email: "", subject: "", message: "" })
+
+    setTimeout(() => {
+      setShowThankYou(false)
+    }, 5000)
   }
 
   return (
@@ -63,7 +51,7 @@ export default function Contact() {
         >
           <div className="text-center mb-16">
             <h2 className="section-header text-white">Get In Touch</h2>
-            <p className="section-subtitle">Have a project in mind? Let's discuss how we can work together</p>
+            <p className="section-subtitle">Have a question or proposal? Let's connect</p>
           </div>
 
           <motion.div
@@ -106,6 +94,21 @@ export default function Contact() {
               </div>
 
               <div>
+                <Label htmlFor="subject" className="text-gray-200 mb-2 block font-inter">
+                  Subject
+                </Label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="form-input font-inter"
+                  placeholder="What is this about?"
+                />
+              </div>
+
+              <div>
                 <Label htmlFor="message" className="text-gray-200 mb-2 block font-inter">
                   Message
                 </Label>
@@ -116,13 +119,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="form-input min-h-[120px] font-inter"
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me your thoughts..."
                 />
               </div>
 
-              <Button type="submit" disabled={isSubmitting} className="btn-primary w-full font-inter">
+              <Button type="submit" className="btn-primary w-full font-inter">
                 <Send className="mr-2 h-4 w-4" />
-                {isSubmitting ? "Sending..." : "Send Message"}
+                Send Message
               </Button>
             </form>
 
@@ -135,17 +138,7 @@ export default function Contact() {
                   className="mt-6 p-4 border border-green-500 rounded-lg flex items-center gap-3 bg-green-500/10"
                 >
                   <CheckCircle className="h-5 w-5 text-green-400" />
-                  <p className="text-green-300 font-inter">Thanks for reaching out! I'll get back to you soon.</p>
-                </motion.div>
-              )}
-              {error && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  className="mt-6 p-4 border border-red-500 rounded-lg flex items-center gap-3 bg-red-500/10"
-                >
-                  <p className="text-red-300 font-inter">{error}</p>
+                  <p className="text-green-300 font-inter">Email client opened. Please send to complete the message.</p>
                 </motion.div>
               )}
             </AnimatePresence>

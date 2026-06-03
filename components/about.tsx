@@ -26,10 +26,10 @@ export default function About() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-lg leading-relaxed font-inter text-center lg:text-left"
             >
-              I'm <span className="text-indigo-400 font-semibold">Md Ismail</span>, a passionate Computer Science
-              student at <span className="text-purple-400 font-semibold">Northern University Bangladesh</span>. My
-              journey in technology is driven by curiosity and the desire to build solutions that solve real-world
-              problems.
+              I'm <span className="text-indigo-400 font-semibold">Md Ismail</span>, a Computer Science student at{" "}
+              <span className="text-purple-400 font-semibold">Northern University Bangladesh</span> with a passion for
+              competitive programming and problem solving. I approach every challenge as an opportunity to sharpen my
+              algorithmic thinking and explore new perspectives.
             </motion.p>
 
             <motion.p
@@ -39,8 +39,10 @@ export default function About() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-lg leading-relaxed font-inter text-center lg:text-left"
             >
-              I specialize in full-stack web development with expertise in modern technologies like React, Node.js, and
-              MongoDB. I believe in continuous learning and pushing the boundaries of what's possible with code.
+              My focus is on mastering fundamental computer science concepts—data structures, algorithms, and
+              computational complexity. I actively participate in competitive programming contests on platforms like
+              Codeforces, CodeChef, and LeetCode, where I continuously improve my problem-solving skills through
+              challenging algorithmic problems.
             </motion.p>
 
             <motion.p
@@ -50,9 +52,10 @@ export default function About() {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="text-lg leading-relaxed font-inter text-center lg:text-left"
             >
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or
-              sharing knowledge with the developer community. I'm always excited about the next challenge and
-              opportunity to grow.
+              Beyond programming contests, I'm interested in entrepreneurship and building products that solve real
+              problems. I believe in continuous learning, exploring new technologies, and combining competitive
+              programming rigor with practical product development. I'm excited about opportunities where strong
+              algorithms meet user-centric design.
             </motion.p>
           </div>
         </motion.div>
