@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
-import Script from "next/script"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -77,29 +76,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Md Ismail",
+    url: "https://mdismail.dev",
+    image: "https://mdismail.dev/images/md-ismail-full-stack-developer.jpg",
+    jobTitle: "Competitive Programmer & Entrepreneur",
+    sameAs: ["https://github.com/ismailset", "https://www.linkedin.com/in/md-ismail-50b966362"],
+    description:
+      "Competitive programmer and entrepreneur specializing in algorithms, problem solving, and building innovative products. CSE student at Northern University Bangladesh.",
+    location: {
+      "@type": "Place",
+      name: "Bangladesh",
+    },
+  }
+
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
-        <Script
-          id="json-ld-person"
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Md Ismail",
-              url: "https://mdismail.dev",
-              image: "https://mdismail.dev/images/md-ismail-full-stack-developer.jpg",
-              jobTitle: "Competitive Programmer & Entrepreneur",
-              sameAs: ["https://github.com/ismailset", "https://www.linkedin.com/in/md-ismail-50b966362"],
-              description:
-                "Competitive programmer and entrepreneur specializing in algorithms, problem solving, and building innovative products. CSE student at Northern University Bangladesh.",
-              location: {
-                "@type": "Place",
-                name: "Bangladesh",
-              },
-            }),
-          }}
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
