@@ -76,31 +76,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Md Ismail",
-    url: "https://mdismail.dev",
-    image: "https://mdismail.dev/images/md-ismail-full-stack-developer.jpg",
-    jobTitle: "Competitive Programmer & Entrepreneur",
-    sameAs: ["https://github.com/ismailset", "https://www.linkedin.com/in/md-ismail-50b966362"],
-    description:
-      "Competitive programmer and entrepreneur specializing in algorithms, problem solving, and building innovative products. CSE student at Northern University Bangladesh.",
-    location: {
-      "@type": "Place",
-      name: "Bangladesh",
-    },
-  }
-
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <head>
-        <script
-          type="application/ld+json"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
+      <head></head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
