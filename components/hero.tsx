@@ -17,6 +17,10 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [])
 
+  const scrollToProjects = () => {
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+  }
+
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
   }
@@ -92,7 +96,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
             >
-              <Button className="btn-primary font-inter text-base px-8 py-4">View Projects</Button>
+              <Button className="btn-primary font-inter text-base px-8 py-4" onClick={scrollToProjects}>
+                View Projects
+              </Button>
               <Button
                 variant="outline"
                 className="btn-secondary font-inter text-base px-8 py-4 bg-transparent"
