@@ -89,69 +89,112 @@ export default function Projects() {
             <p className="section-subtitle">A showcase of my recent work and creative solutions</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projectsData.map((project, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
-                className={`project-card group ${
-                  project.featured ? "lg:col-span-2 border-2 border-indigo-500/50" : ""
-                }`}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: index * 0.15, duration: 0.6, ease: "easeOut" }}
+                whileHover={{ y: -8 }}
+                className={`group relative ${project.featured ? "lg:col-span-2" : ""}`}
               >
-                <div className={`${project.featured ? "h-80" : "h-56"} overflow-hidden relative bg-gray-900/50`}>
-                  {project.featured && (
-                    <div className="absolute top-4 left-4 z-10">
-                      <span className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-                        Latest Project
-                      </span>
-                    </div>
-                  )}
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.name}
-                    width={800}
-                    height={400}
-                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                <div className="p-6 space-y-4">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors duration-300 font-space-grotesk">
-                    {project.name}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed font-inter text-sm">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-300 hover:scale-105 ${
-                          project.featured
-                            ? "bg-indigo-600/20 text-indigo-300 border-indigo-500/30 hover:bg-indigo-600/30"
-                            : "bg-gray-800/80 text-indigo-300 border-gray-700 hover:bg-gray-700/80"
-                        }`}
+                {/* Card Container with Glow Effect */}
+                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-gray-700/50 shadow-xl transition-all duration-500 group-hover:border-indigo-500/50 group-hover:shadow-2xl group-hover:shadow-indigo-500/20 h-full">
+                  {/* Image Container */}
+                  <div className={`relative overflow-hidden ${project.featured ? "h-96" : "h-64"} bg-gray-950`}>
+                    {project.featured && (
+                      <motion.div
+                        className="absolute top-4 left-4 z-20"
+                        initial={{ opacity: 0, y: -10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
                       >
-                        {tech}
-                      </span>
-                    ))}
+                        <span className="bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm">
+                          ✨ Featured
+                        </span>
+                      </motion.div>
+                    )}
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.name}
+                      width={800}
+                      height={400}
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                    />
+                    {/* Overlay Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/30 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
                   </div>
 
-                  <div className="flex gap-3 pt-2">
-                    <Button asChild className="btn-primary flex-1 font-inter group/btn">
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
-                      >
-                        <ExternalLink size={16} className="transition-transform group-hover/btn:translate-x-1" />
-                        Live Demo
-                      </a>
-                    </Button>
+                  {/* Content Container */}
+                  <div className="p-8 space-y-5 flex flex-col h-full relative z-10">
+                    {/* Title */}
+                    <motion.h3
+                      className="text-2xl md:text-3xl font-bold text-white font-space-grotesk leading-snug group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.15 + 0.1 }}
+                    >
+                      {project.name}
+                    </motion.h3>
+
+                    {/* Description */}
+                    <motion.p
+                      className="text-gray-300 leading-relaxed font-inter text-sm flex-1 line-clamp-3 group-hover:text-gray-200 transition-colors duration-300"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: index * 0.15 + 0.15 }}
+                    >
+                      {project.description}
+                    </motion.p>
+
+                    {/* Tech Stack */}
+                    <motion.div
+                      className="flex flex-wrap gap-2"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: index * 0.15 + 0.2 }}
+                    >
+                      {project.tech.map((tech, techIndex) => (
+                        <motion.span
+                          key={techIndex}
+                          whileHover={{ scale: 1.08, translateY: -2 }}
+                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold border backdrop-blur-sm transition-all duration-300 cursor-default ${
+                            project.featured
+                              ? "bg-indigo-600/20 text-indigo-300 border-indigo-500/40 hover:bg-indigo-600/30 hover:border-indigo-400/60"
+                              : "bg-gray-800/50 text-indigo-300 border-gray-600/60 hover:bg-gray-700/60 hover:border-indigo-500/40"
+                          }`}
+                        >
+                          {tech}
+                        </motion.span>
+                      ))}
+                    </motion.div>
+
+                    {/* CTA Button */}
+                    <motion.div
+                      className="flex gap-3 pt-4"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.15 + 0.25 }}
+                    >
+                      <Button asChild className="btn-primary flex-1 font-inter font-semibold overflow-hidden relative group/btn">
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 relative z-10"
+                        >
+                          <span>View Project</span>
+                          <motion.div
+                            className="transition-transform"
+                            whileHover={{ x: 4 }}
+                          >
+                            <ExternalLink size={16} />
+                          </motion.div>
+                        </a>
+                      </Button>
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
