@@ -6,12 +6,28 @@ import { ExternalLink, Code2, Trophy, Target } from "lucide-react"
 
 const cpProfiles = [
   {
+    platform: "Codeforces",
+    username: "md_ismail_nub",
+    url: "https://codeforces.com/profile/md_ismail_nub",
+    description: "Programming contests and competitive coding",
+    icon: Trophy,
+    color: "from-blue-600 to-cyan-600",
+  },
+  {
     platform: "CodeChef",
     username: "mdismail_nub",
     url: "https://www.codechef.com/users/mdismail_nub",
     description: "Competitive programming challenges and contests",
     icon: Code2,
     color: "from-amber-600 to-orange-600",
+  },
+  {
+    platform: "LeetCode",
+    username: "md_ismail",
+    url: "https://leetcode.com/md_ismail",
+    description: "Data structures and algorithm practice",
+    icon: Target,
+    color: "from-yellow-600 to-orange-600",
   },
   {
     platform: "Beecrowd",
@@ -22,12 +38,20 @@ const cpProfiles = [
     color: "from-green-600 to-emerald-600",
   },
   {
-    platform: "Codeforces",
-    username: "md_ismail_nub",
-    url: "https://codeforces.com/profile/md_ismail_nub",
-    description: "Programming contests and competitive coding",
+    platform: "AtCoder",
+    username: "md_ismail",
+    url: "https://atcoder.jp/users/md_ismail",
+    description: "Japanese programming contests",
     icon: Trophy,
-    color: "from-blue-600 to-cyan-600",
+    color: "from-purple-600 to-pink-600",
+  },
+  {
+    platform: "HackerRank",
+    username: "md_ismail_nub",
+    url: "https://www.hackerrank.com/md_ismail_nub",
+    description: "Programming challenges and skill certification",
+    icon: Code2,
+    color: "from-indigo-600 to-blue-600",
   },
 ]
 
@@ -43,8 +67,8 @@ export default function CompetitiveProgramming() {
           className="max-w-7xl mx-auto"
         >
           <div className="text-center mb-16">
-            <h2 className="section-header text-white">Competitive Programming</h2>
-            <p className="section-subtitle">My coding profiles and algorithmic problem-solving journey</p>
+            <h2 className="section-header text-white">Competitive Programming Journey</h2>
+            <p className="section-subtitle">Improving problem-solving skills through contests and algorithmic challenges</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

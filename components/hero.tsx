@@ -4,28 +4,22 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Download, MessageCircle } from "lucide-react"
+import { MessageCircle } from "lucide-react"
 
 export default function Hero() {
-  const [quoteText, setQuoteText] = useState("")
-  const [showQuote, setShowQuote] = useState(false)
-  const fullQuote = "Make it possible when it's impossible."
+  const roles = ["Competitive Programmer", "Problem Solver", "Entrepreneur", "CSE Student"]
+  const [currentRole, setCurrentRole] = useState(0)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowQuote(true)
-    }, 1500)
-    return () => clearTimeout(timer)
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length)
+    }, 3000)
+    return () => clearInterval(interval)
   }, [])
 
-  useEffect(() => {
-    if (showQuote && quoteText.length < fullQuote.length) {
-      const timer = setTimeout(() => {
-        setQuoteText(fullQuote.substring(0, quoteText.length + 1))
-      }, 80)
-      return () => clearTimeout(timer)
-    }
-  }, [quoteText, showQuote, fullQuote])
+  const scrollToProjects = () => {
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+  }
 
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
@@ -45,68 +39,73 @@ export default function Hero() {
               className="mb-6"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ delay: 0.1, duration: 0.8 }}
             >
               <p className="text-2xl md:text-3xl text-gray-300 font-space-grotesk font-medium tracking-wide mb-2">
                 Hey it's me
               </p>
-              <h1 className="text-6xl md:text-8xl font-bold text-white font-dancing leading-tight glow-text">
+              <h1 className="text-6xl md:text-8xl font-bold text-white font-dancing leading-tight glow-text mb-6">
                 MD ISMAIL
               </h1>
             </motion.div>
 
-            <motion.p
-              className="hero-subtitle"
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold text-white font-space-grotesk leading-tight mb-6"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              Competitive Programmer &<br />
+              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Entrepreneur
+              </span>
+            </motion.h2>
+
+            <motion.div
+              className="mb-8 h-12 flex items-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Full-Stack Developer & CSE Student
-            </motion.p>
+              <motion.p
+                key={currentRole}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.5 }}
+                className="text-xl md:text-2xl text-indigo-400 font-inter font-medium"
+              >
+                {roles[currentRole]}
+              </motion.p>
+            </motion.div>
 
             <motion.p
-              className="hero-description"
+              className="hero-description mb-8"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              Passionate about creating innovative web solutions and exploring cutting-edge technologies. I transform
-              ideas into digital experiences that make a difference.
+              Building products, solving problems, and exploring entrepreneurship through technology. Computer Science
+              student passionate about algorithms, competitive programming, and turning ideas into useful digital
+              experiences.
             </motion.p>
-
-            {/* Animated Quote */}
-            <motion.div
-              className="mb-12 p-8 border-l-4 border-indigo-500 bg-gray-900/30 rounded-r-xl backdrop-blur-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-            >
-              <blockquote className="text-xl italic text-gray-200 font-caveat font-medium">
-                "{quoteText}
-                {showQuote && quoteText.length < fullQuote.length && (
-                  <span className="inline-block w-0.5 h-6 bg-indigo-500 ml-1 animate-blink"></span>
-                )}
-                "
-              </blockquote>
-            </motion.div>
 
             <motion.div
               className="flex flex-col sm:flex-row gap-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.6 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
             >
-              <Button className="btn-primary font-inter text-base px-8 py-4">
-                <Download className="mr-3 h-5 w-5" />
-                Download CV
+              <Button className="btn-primary font-inter text-base px-8 py-4" onClick={scrollToProjects}>
+                View Projects
               </Button>
               <Button
                 variant="outline"
-                className="btn-secondary font-inter text-base px-8 py-4"
+                className="btn-secondary font-inter text-base px-8 py-4 bg-transparent"
                 onClick={scrollToContact}
               >
                 <MessageCircle className="mr-3 h-5 w-5" />
-                Let's Talk
+                Contact Me
               </Button>
             </motion.div>
           </motion.div>
@@ -123,12 +122,13 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
               >
                 <Image
-                  src="/images/md-ismail-portrait.jpg"
-                  alt="Md Ismail"
+                  src="/images/md-ismail-full-stack-developer.jpg"
+                  alt="Md Ismail Competitive Programmer and Entrepreneur"
                   width={384}
                   height={384}
                   className="w-full h-full object-cover"
                   priority
+                  sizes="(max-width: 768px) 288px, 384px"
                 />
               </motion.div>
             </div>

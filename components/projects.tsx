@@ -16,6 +16,22 @@ const projectsData = [
     featured: true,
   },
   {
+    name: "CodePath",
+    description:
+      "An intelligent coding path finder that helps developers explore structured learning routes for mastering programming languages and frameworks with personalized recommendations.",
+    url: "https://codepath.mdismail.dev/",
+    image: "/placeholder.jpg",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
+  },
+  {
+    name: "Speak",
+    description:
+      "A voice communication platform designed for seamless real-time conversations with advanced audio processing and intuitive interface for modern users.",
+    url: "https://speak.mdismail.dev/",
+    image: "/placeholder.jpg",
+    tech: ["React", "WebRTC", "Node.js", "TypeScript"],
+  },
+  {
     name: "News Aggregator Website",
     description:
       "A modern AI-powered news platform that fetches and summarizes trending news across different categories. Built with performance and user readability in mind.",
