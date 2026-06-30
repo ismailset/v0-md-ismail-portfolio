@@ -100,9 +100,9 @@ export default function Projects() {
                 className={`group relative ${project.featured ? "lg:col-span-2" : ""}`}
               >
                 {/* Card Container with Glow Effect */}
-                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-gray-700/50 shadow-xl transition-all duration-500 group-hover:border-indigo-500/50 group-hover:shadow-2xl group-hover:shadow-indigo-500/20 h-full">
+                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-gray-700/50 shadow-xl transition-all duration-500 group-hover:border-indigo-500/50 group-hover:shadow-2xl group-hover:shadow-indigo-500/20 h-full flex flex-col">
                   {/* Image Container */}
-                  <div className={`relative overflow-hidden ${project.featured ? "h-96" : "h-64"} bg-gray-950`}>
+                  <div className={`relative overflow-hidden ${project.featured ? "h-48 sm:h-64" : "h-40 sm:h-52"} bg-gray-950 flex-shrink-0`}>
                     {project.featured && (
                       <motion.div
                         className="absolute top-4 left-4 z-20"
@@ -127,10 +127,10 @@ export default function Projects() {
                   </div>
 
                   {/* Content Container */}
-                  <div className="p-8 space-y-5 flex flex-col h-full relative z-10">
+                  <div className="p-5 sm:p-6 space-y-3 sm:space-y-4 flex flex-col flex-grow relative z-10">
                     {/* Title */}
                     <motion.h3
-                      className="text-2xl md:text-3xl font-bold text-white font-space-grotesk leading-snug group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300"
+                      className="text-xl sm:text-2xl font-bold text-white font-space-grotesk leading-snug group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300"
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.15 + 0.1 }}
@@ -140,7 +140,7 @@ export default function Projects() {
 
                     {/* Description */}
                     <motion.p
-                      className="text-gray-300 leading-relaxed font-inter text-sm flex-1 line-clamp-3 group-hover:text-gray-200 transition-colors duration-300"
+                      className="text-gray-300 leading-relaxed font-inter text-xs sm:text-sm flex-grow line-clamp-2 sm:line-clamp-3 group-hover:text-gray-200 transition-colors duration-300"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: index * 0.15 + 0.15 }}
@@ -150,16 +150,16 @@ export default function Projects() {
 
                     {/* Tech Stack */}
                     <motion.div
-                      className="flex flex-wrap gap-2"
+                      className="flex flex-wrap gap-1.5 sm:gap-2"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: index * 0.15 + 0.2 }}
                     >
-                      {project.tech.map((tech, techIndex) => (
+                      {project.tech.slice(0, 3).map((tech, techIndex) => (
                         <motion.span
                           key={techIndex}
-                          whileHover={{ scale: 1.08, translateY: -2 }}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold border backdrop-blur-sm transition-all duration-300 cursor-default ${
+                          whileHover={{ scale: 1.05 }}
+                          className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg text-xs font-semibold border backdrop-blur-sm transition-all duration-300 cursor-default ${
                             project.featured
                               ? "bg-indigo-600/20 text-indigo-300 border-indigo-500/40 hover:bg-indigo-600/30 hover:border-indigo-400/60"
                               : "bg-gray-800/50 text-indigo-300 border-gray-600/60 hover:bg-gray-700/60 hover:border-indigo-500/40"
@@ -172,12 +172,12 @@ export default function Projects() {
 
                     {/* CTA Button */}
                     <motion.div
-                      className="flex gap-3 pt-4"
+                      className="flex gap-2 sm:gap-3 pt-3 sm:pt-4 mt-auto"
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.15 + 0.25 }}
                     >
-                      <Button asChild className="btn-primary flex-1 font-inter font-semibold overflow-hidden relative group/btn">
+                      <Button asChild className="btn-primary flex-1 font-inter font-semibold text-sm overflow-hidden relative group/btn py-2.5">
                         <a
                           href={project.url}
                           target="_blank"
