@@ -7,69 +7,68 @@ import Image from "next/image"
 
 const projectsData = [
   {
-    name: "DocMate BD",
-    description:
-      "Online application assistance platform for all Bangladesh government services. Provides expert guidance for passport, NID, birth certificate applications with 98% success rate and 24/7 support. Trusted by 5000+ Bangladeshis.",
-    url: "https://doc-matebd.vercel.app/",
-    image: "/docmate-bangladesh-government-services-online-appl.jpg",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Payment Integration", "24/7 Support"],
+    name: "68Share",
+    description: "Secure file sharing platform with end-to-end encryption. Share files between devices instantly without sign-up. Fast P2P transfer with privacy-first architecture.",
+    url: "https://68share.mdismail.dev/",
+    image: "/68share-banner.png",
+    tech: ["Next.js", "WebRTC", "Encryption", "TypeScript"],
     featured: true,
   },
   {
     name: "CodePath",
-    description:
-      "An intelligent coding path finder that helps developers explore structured learning routes for mastering programming languages and frameworks with personalized recommendations.",
+    description: "Interactive competitive programming platform for learning and practicing coding problems. Track your progress from beginner to expert problem solver.",
     url: "https://codepath.mdismail.dev/",
-    image: "/placeholder.jpg",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
+    image: "/codepath-banner.png",
+    tech: ["Next.js", "React", "Algorithm", "Competitive Programming"],
+    featured: false,
   },
   {
-    name: "Speak",
-    description:
-      "A voice communication platform designed for seamless real-time conversations with advanced audio processing and intuitive interface for modern users.",
-    url: "https://speak.mdismail.dev/",
-    image: "/placeholder.jpg",
-    tech: ["React", "WebRTC", "Node.js", "TypeScript"],
+    name: "FreeSpeak",
+    description: "Anonymous messaging platform where you can express yourself freely without judgment. Share anything anonymously with complete privacy and security.",
+    url: "https://freespeak.mdismail.dev/",
+    image: "/freespeak-banner.png",
+    tech: ["Next.js", "Socket.io", "Privacy", "Anonymity"],
+    featured: false,
   },
   {
-    name: "News Aggregator Website",
-    description:
-      "A modern AI-powered news platform that fetches and summarizes trending news across different categories. Built with performance and user readability in mind.",
-    url: "https://news.mdismail.dev/",
-    image: "/modern-news-aggregator-website-with-ai-powered-new.jpg",
-    tech: ["React", "Vite", "Tailwind CSS", "News API", "OpenAI"],
-  },
-  {
-    name: "Study Buddy",
-    description:
-      "A modern, vibrant landing page designed with Gen-Z aesthetics, featuring smooth animations and interactive elements that engage young audiences.",
-    url: "https://project.mdismail.dev/",
-    image: "/vibrant-gen-z-study-landing-page-with-bold-colors-.jpg",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    name: "Image Resizer UI",
-    description:
-      "User-friendly interface for image resizing with drag-and-drop functionality, built with modern web APIs for seamless file processing.",
+    name: "Image Resizer",
+    description: "User-friendly interface for image resizing with drag-and-drop functionality. Resize, compress, and optimize images with instant preview.",
     url: "https://img-resize.mdismail.dev/",
     image: "/modern-image-resizer-tool-interface-with-drag-and-.jpg",
-    tech: ["React", "Canvas API", "File API"],
+    tech: ["React", "Canvas API", "Image Processing"],
+    featured: false,
   },
   {
-    name: "Education Website",
-    description:
-      "Clean and elegant educational platform design with modern layout, showcasing responsive design principles and user experience best practices for online learning.",
+    name: "News Aggregator",
+    description: "Contemporary news website aggregating content with AI-powered recommendations. Clean interface with real-time updates and personalized feed.",
+    url: "https://news.mdismail.dev/",
+    image: "/modern-news-aggregator-website-with-ai-powered-new.jpg",
+    tech: ["Next.js", "AI", "News API", "Real-time"],
+    featured: false,
+  },
+  {
+    name: "DocMate BD",
+    description: "Government services documentation platform for Bangladesh. Simplify access to important documents and administrative processes.",
+    url: "https://doc-matebd.vercel.app/",
+    image: "/docmate-bangladesh-government-services-online-appl.jpg",
+    tech: ["Next.js", "Government Services", "Documentation"],
+    featured: false,
+  },
+  {
+    name: "Education Platform",
+    description: "Modern educational platform with clean layout and interactive learning modules. Designed for Gen-Z learners with intuitive navigation.",
     url: "https://eduvibe.mdismail.dev/",
     image: "/modern-educational-platform-homepage-with-clean-la.jpg",
-    tech: ["Next.js", "CSS", "JavaScript"],
+    tech: ["React", "Next.js", "Education"],
+    featured: false,
   },
   {
-    name: "Ielts Mate",
-    description:
-      "Cutting-edge IELTS preparation platform with AI-powered features, designed to help students achieve their target scores through interactive learning and practice.",
+    name: "IELTS Mate",
+    description: "Comprehensive IELTS exam preparation platform with practice tests and score tracking. Prepare for your IELTS exam with expert guidance.",
     url: "https://ieltsmate.ismailsworld.xyz/",
     image: "/ielts-preparation-platform-with-ai-features-practi.jpg",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tech: ["Next.js", "IELTS", "Exam Prep", "AI"],
+    featured: false,
   },
 ]
 
