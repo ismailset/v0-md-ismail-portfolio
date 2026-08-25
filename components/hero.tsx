@@ -122,7 +122,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
               >
                 <Image
-                  src="/images/md-ismail-full-stack-developer.jpg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file_0000000064c4820bac13e1d5cb8db56b-ridoG0WfcS8uxEivj3T655rkqxVGQg.png"
                   alt="Md Ismail Competitive Programmer and Entrepreneur"
                   width={384}
                   height={384}
