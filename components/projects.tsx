@@ -5,12 +5,22 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink } from "lucide-react"
 import Image from "next/image"
 
-const projectsData = [
+type Project = {
+  name: string
+  description: string
+  url: string
+  image: string
+  gallery?: string[]
+  tech: string[]
+  featured: boolean
+}
+
+const projectsData: Project[] = [
   {
     name: "68Share",
     description: "Secure file sharing platform with end-to-end encryption. Share files between devices instantly without sign-up. Fast P2P transfer with privacy-first architecture.",
     url: "https://68share.mdismail.dev/",
-    image: "/68share-banner.png",
+    image: "/images/68share-project.png",
     tech: ["Next.js", "WebRTC", "Encryption", "TypeScript"],
     featured: true,
   },
@@ -34,7 +44,8 @@ const projectsData = [
     name: "Image Resizer",
     description: "User-friendly interface for image resizing with drag-and-drop functionality. Resize, compress, and optimize images with instant preview.",
     url: "https://img-resize.mdismail.dev/",
-    image: "/modern-image-resizer-tool-interface-with-drag-and-.jpg",
+    image: "/images/imgresize-project.png",
+    gallery: ["/images/imgresize-project.png", "/images/imgresize-project-detail.png"],
     tech: ["React", "Canvas API", "Image Processing"],
     featured: false,
   },
@@ -60,14 +71,6 @@ const projectsData = [
     url: "https://eduvibe.mdismail.dev/",
     image: "/modern-educational-platform-homepage-with-clean-la.jpg",
     tech: ["React", "Next.js", "Education"],
-    featured: false,
-  },
-  {
-    name: "IELTS Mate",
-    description: "Comprehensive IELTS exam preparation platform with practice tests and score tracking. Prepare for your IELTS exam with expert guidance.",
-    url: "https://ieltsmate.ismailsworld.xyz/",
-    image: "/ielts-preparation-platform-with-ai-features-practi.jpg",
-    tech: ["Next.js", "IELTS", "Exam Prep", "AI"],
     featured: false,
   },
 ]
@@ -115,13 +118,28 @@ export default function Projects() {
                         </span>
                       </motion.div>
                     )}
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.name}
-                      width={800}
-                      height={400}
-                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-                    />
+                    {project.gallery ? (
+                      <div className="grid h-full grid-cols-2 gap-1">
+                        {project.gallery.map((image, imageIndex) => (
+                          <Image
+                            key={image}
+                            src={image}
+                            alt={`${project.name} screenshot ${imageIndex + 1}`}
+                            width={800}
+                            height={450}
+                            className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <Image
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.name}
+                        width={800}
+                        height={400}
+                        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                      />
+                    )}
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/30 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
                   </div>
@@ -212,7 +230,7 @@ export default function Projects() {
             </p>
             <Button asChild className="btn-secondary font-inter">
               <a
-                href="https://github.com/ismailset"
+                href="https://github.com/mdismail-nub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2"
