@@ -28,7 +28,7 @@ const cpProfiles = [
     platform: "LeetCode",
     username: "mdismaildev",
     url: "https://leetcode.com/u/mdismaildev/",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%287%29-NU8o1om39pk0yDumUO97ay77qBL6Xw.jpeg",
+    logo: "/images/leetcode-logo.png",
     description: "Data structures and algorithm practice",
     icon: Target,
     color: "from-yellow-600 to-orange-600",
