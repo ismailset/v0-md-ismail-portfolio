@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Code2, Trophy, Target } from "lucide-react"
 
@@ -9,6 +10,7 @@ const cpProfiles = [
     platform: "Codeforces",
     username: "md_ismail_nub",
     url: "https://codeforces.com/profile/md_ismail_nub",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%283%29-g66lxttwMUHcKGGJQ8c85ehUeZZGSq.png",
     description: "Programming contests and competitive coding",
     icon: Trophy,
     color: "from-blue-600 to-cyan-600",
@@ -17,14 +19,16 @@ const cpProfiles = [
     platform: "CodeChef",
     username: "mdismail_nub",
     url: "https://www.codechef.com/users/mdismail_nub",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%288%29-vTm39ZGFAcafFjK4Zhhi1c1HC4iG1o.jpeg",
     description: "Competitive programming challenges and contests",
     icon: Code2,
     color: "from-amber-600 to-orange-600",
   },
   {
     platform: "LeetCode",
-    username: "md_ismail",
-    url: "https://leetcode.com/md_ismail",
+    username: "mdismaildev",
+    url: "https://leetcode.com/u/mdismaildev/",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%287%29-NU8o1om39pk0yDumUO97ay77qBL6Xw.jpeg",
     description: "Data structures and algorithm practice",
     icon: Target,
     color: "from-yellow-600 to-orange-600",
@@ -33,6 +37,7 @@ const cpProfiles = [
     platform: "Beecrowd",
     username: "Profile #1171293",
     url: "https://judge.beecrowd.com/en/profile/1171293",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%284%29-FZ5c8U44GB3cZl4CswkEXyRqJ928lm.png",
     description: "Problem solving and algorithm practice",
     icon: Target,
     color: "from-green-600 to-emerald-600",
@@ -41,14 +46,16 @@ const cpProfiles = [
     platform: "AtCoder",
     username: "md_ismail",
     url: "https://atcoder.jp/users/md_ismail",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%285%29-1ENsUv9IodUOLwj5bFNQgRGD5pYEz0.png",
     description: "Japanese programming contests",
     icon: Trophy,
     color: "from-purple-600 to-pink-600",
   },
   {
     platform: "HackerRank",
-    username: "md_ismail_nub",
-    url: "https://www.hackerrank.com/md_ismail_nub",
+    username: "mdismail_121510",
+    url: "https://www.hackerrank.com/profile/mdismail_121510",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/download%20%281%29-i3R7t4KEfDp9SBPpOtDpJspPOkDRIa.png",
     description: "Programming challenges and skill certification",
     icon: Code2,
     color: "from-indigo-600 to-blue-600",
@@ -84,11 +91,16 @@ export default function CompetitiveProgramming() {
                   className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-indigo-500/50 transition-all duration-300 group hover:scale-105"
                 >
                   <div className="flex flex-col items-center text-center space-y-4">
-                    {/* Icon with gradient */}
-                    <div
-                      className={`w-16 h-16 rounded-full bg-gradient-to-br ${profile.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <IconComponent className="w-8 h-8 text-white" />
+                    {/* Platform logo */}
+                    <div className="relative w-16 h-16 overflow-hidden rounded-full bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src={profile.logo}
+                        alt={`${profile.platform} logo`}
+                        fill
+                        sizes="64px"
+                        className="object-contain p-2"
+                      />
+                      <IconComponent className="sr-only" aria-hidden="true" />
                     </div>
 
                     {/* Platform Name */}
