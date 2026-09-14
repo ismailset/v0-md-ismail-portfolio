@@ -169,6 +169,30 @@
   @apply mb-4;
 }
 
+.blog-content {
+  @apply max-w-none text-gray-200 leading-relaxed;
+}
+
+.blog-content img {
+  @apply my-6 h-auto max-w-full rounded-xl;
+}
+
+.blog-content pre {
+  @apply my-6 overflow-x-auto rounded-xl border border-white/10 bg-black/40 p-5;
+}
+
+.blog-content code {
+  @apply font-mono text-sm;
+}
+
+.blog-content a {
+  @apply text-indigo-300 underline underline-offset-4;
+}
+
+.blog-content blockquote {
+  @apply border-l-4 border-indigo-400/70 pl-5 italic text-white/75;
+}
+
 /* Custom cursor */
 * {
   cursor: none !important;
