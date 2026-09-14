@@ -14,7 +14,7 @@ export function PostEditor({ post, action }: { post?: BlogPost | null; action: (
 
   return <form action={action} className="grid gap-8 lg:grid-cols-[1fr_0.85fr]">
     <div className="flex flex-col gap-5">
-      <input type="hidden" name="id" value={post?.id ?? ""} /><input type="hidden" name="coverImage" value={coverImage} />
+      {post ? <input type="hidden" name="id" value={post.id} /> : null}<input type="hidden" name="coverImage" value={coverImage} />
       <label className="flex flex-col gap-2"><span>Title</span><input name="title" value={title} onChange={(event) => setTitle(event.target.value)} required className="form-input rounded-lg p-3" /></label>
       <label className="flex flex-col gap-2"><span>Slug</span><input name="slug" defaultValue={slug} required className="form-input rounded-lg p-3" /></label>
       <label className="flex flex-col gap-2"><span>Excerpt</span><textarea name="excerpt" defaultValue={post?.excerpt ?? ""} required rows={3} className="form-input rounded-lg p-3" /></label>
