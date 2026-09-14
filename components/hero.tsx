@@ -116,20 +116,23 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
+            <div className="relative w-72 h-80 md:w-96 md:h-[28rem]">
+              <div className="absolute -inset-3 rounded-[2rem] bg-indigo-500/10 blur-xl" aria-hidden="true" />
               <motion.div
-                className="w-full h-full rounded-full border-4 border-indigo-500 shadow-2xl glow-border overflow-hidden transition-transform duration-300 hover:scale-105"
-                whileHover={{ scale: 1.05 }}
+                className="relative h-full w-full overflow-hidden rounded-[2rem] border-4 border-indigo-500/80 bg-slate-950 p-1 shadow-2xl glow-border transition-transform duration-300 hover:scale-105"
+                whileHover={{ scale: 1.03 }}
               >
-                <Image
-                  src="/images/md-ismail-profile.png"
-                  alt="Md Ismail Competitive Programmer and Entrepreneur"
-                  width={384}
-                  height={384}
-                  className="w-full h-full object-cover"
-                  priority
-                  sizes="(max-width: 768px) 288px, 384px"
-                />
+                <div className="h-full w-full overflow-hidden rounded-[1.6rem]">
+                  <Image
+                    src="/images/md-ismail-profile-color.jpg"
+                    alt="Md Ismail Competitive Programmer and Entrepreneur"
+                    width={384}
+                    height={448}
+                    className="h-full w-full object-cover object-[center_32%]"
+                    priority
+                    sizes="(max-width: 768px) 288px, 384px"
+                  />
+                </div>
               </motion.div>
             </div>
           </motion.div>
