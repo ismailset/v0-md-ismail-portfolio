@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -67,9 +69,6 @@
 .font-space-grotesk {
   font-family: var(--font-space-grotesk), sans-serif;
 }
-
-/* Import handwritten fonts */
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap");
 
 /* Handwritten font classes */
 .font-dancing {
