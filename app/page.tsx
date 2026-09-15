@@ -7,11 +7,13 @@ import CompetitiveProgramming from "@/components/competitive-programming"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import CustomCursor from "@/components/custom-cursor"
+import SiteNav from "@/components/site-nav"
 
 export default function Home() {
   return (
     <main className="min-h-screen text-white overflow-x-hidden">
       <CustomCursor />
+      <SiteNav />
 
       <Hero />
       <About />

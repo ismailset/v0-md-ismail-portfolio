@@ -116,20 +116,23 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
+            <div className="relative size-72 md:size-96">
+              <div className="absolute -inset-3 rounded-full bg-indigo-500/10 blur-xl" aria-hidden="true" />
               <motion.div
-                className="w-full h-full rounded-full border-4 border-indigo-500 shadow-2xl glow-border overflow-hidden transition-transform duration-300 hover:scale-105"
+                className="relative size-full overflow-hidden rounded-full border-4 border-indigo-500/80 bg-slate-950 p-1 shadow-2xl glow-border transition-transform duration-300 hover:scale-105"
                 whileHover={{ scale: 1.05 }}
               >
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file_0000000064c4820bac13e1d5cb8db56b-ridoG0WfcS8uxEivj3T655rkqxVGQg.png"
-                  alt="Md Ismail Competitive Programmer and Entrepreneur"
-                  width={384}
-                  height={384}
-                  className="w-full h-full object-cover"
-                  priority
-                  sizes="(max-width: 768px) 288px, 384px"
-                />
+                <div className="size-full overflow-hidden rounded-full">
+                  <Image
+                    src="/images/md-ismail-profile-color.jpg"
+                    alt="Md Ismail Competitive Programmer and Entrepreneur"
+                    width={384}
+                    height={384}
+                    className="size-full object-cover object-[center_28%]"
+                    priority
+                    sizes="(max-width: 768px) 288px, 384px"
+                  />
+                </div>
               </motion.div>
             </div>
           </motion.div>
