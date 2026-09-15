@@ -2,6 +2,8 @@ import { betterAuth } from "better-auth"
 import { pool } from "@/lib/db"
 
 const productionOrigins = [
+  "https://www.mdismail.dev",
+  "https://mdismail.dev",
   ...(process.env.VERCEL_URL ? [`https://${process.env.VERCEL_URL}`] : []),
   ...(process.env.VERCEL_PROJECT_PRODUCTION_URL ? [`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`] : []),
 ]
