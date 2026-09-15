@@ -15,11 +15,17 @@ function highlightHtml(html: string) {
     block.innerHTML = result
     block.classList.add("hljs")
   })
+  wrapper.querySelectorAll("table").forEach((table) => {
+    const scroll = document.createElement("div")
+    scroll.className = "table-scroll"
+    table.parentNode?.insertBefore(scroll, table)
+    scroll.appendChild(table)
+  })
   return wrapper.innerHTML
 }
 
 export function BlogContentRenderer({ content, contentType = "markdown" }: { content: string; contentType?: "markdown" | "html" }) {
   if (contentType !== "html") return <Markdown content={content} />
-  return <div className="blog-content" dangerouslySetInnerHTML={{ __html: highlightHtml(sanitizeHtml(content)) }} />
+  return <div className="blog-content" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: highlightHtml(sanitizeHtml(content)) }} />
 }
 
